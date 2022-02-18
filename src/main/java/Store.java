@@ -16,9 +16,12 @@ public class Store {
                 for (int i = 0; i < store.length; i++) {
                     if ( store[i] == null){
                         store[i] = item;
+                        System.out.println("Товар " + item + " успешно доваблен на склад");
                     break;
+
                 }
-                System.out.println("Товар " + item + " успешно доваблен на склад");
+                    else  System.out.println("Склад переполнен");
+
             }
             }
 
