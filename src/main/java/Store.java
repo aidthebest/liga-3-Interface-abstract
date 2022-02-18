@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class Store {
     public static void main(String[] args) {
+        String[] store = new String[10];
 
         for (int j = 0; j < 100; j++) {
-            String[] store = new String[10];
+
             System.out.println("Введите команду");
             Scanner scanner = new Scanner(System.in);
             String command = scanner.nextLine();
@@ -13,18 +14,19 @@ public class Store {
                 System.out.println("Кладём новый товар, укажите название");
                 String item = scanner.nextLine();
                 for (int i = 0; i < store.length; i++) {
-                    if (store[i] == null)
+                    if ( store[i] == null){
                         store[i] = item;
                     break;
                 }
                 System.out.println("Товар " + item + " успешно доваблен на склад");
+            }
             }
 
             if (command.equals("del")) {
                 System.out.println("Что удаляем?");
                 String itemToDel = scanner.nextLine();
                 for (int i = 0; i < store.length; i++) {
-                    if (store[i] == itemToDel) {
+                    if (store[i].equals(itemToDel)) {
                         store[i] = null;
                         break;
                     }
@@ -36,9 +38,11 @@ public class Store {
                 System.out.println("Что ищем??");
                 String findItem = scanner.nextLine();
                 for (int i = 0; i < store.length; i++) {
-                    if (store[i] == findItem) {
+                    if (store[i].equals(findItem)) {
                         System.out.println("Товар " + findItem + " есть на складе");
-                    } else System.out.println("Товара " + findItem + " На складе нет");
+                        break;
+                    }
+                    else System.out.println("Товара " + findItem + " На складе нет");
                 }
             }
 
@@ -46,7 +50,7 @@ public class Store {
                 int count = 0;
                 for (int i = 0; i < store.length; i++) {
                     if (store[i] != null) {
-                        count = count++;
+                        count = count+1;
                     }
 
                 }
@@ -55,12 +59,13 @@ public class Store {
 
 
             for (int i = 0; i < store.length; i++) {
-                if (store[i] != null) {
+//                if (store[i] != null) {
                     System.out.println("На складе " + store[i]);
                 }
             }
         }
     }
-}
+
+
 
 
