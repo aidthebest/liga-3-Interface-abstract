@@ -9,59 +9,58 @@ public class Store {
             Scanner scanner = new Scanner(System.in);
             String command = scanner.nextLine();
 
-        if (command.equals("add")){
-            System.out.println("Кладём новый товар, укажите название");
-            String item = scanner.nextLine();
-            for (int i = 0; i < store.length; i++) {
-                if (store[i] == null)
-                store[i] = item;
-                break;
-            }
-            System.out.println("Товар " + item + " успешно доваблен на склад");
-        }
-
-        if (command.equals("del")) {
-            System.out.println("Что удаляем?");
-            String itemToDel = scanner.nextLine();
-            for (int i = 0; i < store.length; i++) {
-                if (store[i] == itemToDel) {
-                    store[i] = null;
+            if (command.equals("add")) {
+                System.out.println("Кладём новый товар, укажите название");
+                String item = scanner.nextLine();
+                for (int i = 0; i < store.length; i++) {
+                    if (store[i] == null)
+                        store[i] = item;
                     break;
                 }
-                System.out.println("Товар " + itemToDel + " успешно удалён со склада");
+                System.out.println("Товар " + item + " успешно доваблен на склад");
             }
-        }
 
-        if (command.equals("find")){
-            System.out.println("Что ищем??");
-            String findItem = scanner.nextLine();
-            for (int i = 0; i < store.length; i++) {
-                if (store[i] == findItem) {
-                System.out.println("Товар " + findItem + " есть на складе");
+            if (command.equals("del")) {
+                System.out.println("Что удаляем?");
+                String itemToDel = scanner.nextLine();
+                for (int i = 0; i < store.length; i++) {
+                    if (store[i] == itemToDel) {
+                        store[i] = null;
+                        break;
+                    }
+                    System.out.println("Товар " + itemToDel + " успешно удалён со склада");
                 }
-                else System.out.println("Товара " + findItem + " На складе нет");
             }
-        }
 
-            if (command.equals("count")){
-            int count = 0;
+            if (command.equals("find")) {
+                System.out.println("Что ищем??");
+                String findItem = scanner.nextLine();
+                for (int i = 0; i < store.length; i++) {
+                    if (store[i] == findItem) {
+                        System.out.println("Товар " + findItem + " есть на складе");
+                    } else System.out.println("Товара " + findItem + " На складе нет");
+                }
+            }
+
+            if (command.equals("count")) {
+                int count = 0;
                 for (int i = 0; i < store.length; i++) {
                     if (store[i] != null) {
-                    count = count++;}
+                        count = count++;
+                    }
 
-            }
+                }
                 System.out.println("На складе " + count + " позиций");
             }
 
 
-
-        for (int i = 0; i < store.length; i++) {
-            if (store[i] != null) {
-            System.out.println("На складе " + store[i]);
+            for (int i = 0; i < store.length; i++) {
+                if (store[i] != null) {
+                    System.out.println("На складе " + store[i]);
+                }
+            }
         }
-     }
     }
-  }
 }
 
 
