@@ -2,14 +2,10 @@ package lesson_3.homework;
 
 public class HomeApp extends Category {
 
-    public void iconDescriptionSet() {
-        iconDescription = "HomeApp";
+    public HomeApp (String icon, String name){
+        this.iconDescription = icon;
+        this.name = name;
     }
-
-    public void nameSet() {
-        name = "someApp";
-    }
-
     @Override
     public void open() {
         System.out.println("Apps");

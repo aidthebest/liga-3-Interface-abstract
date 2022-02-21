@@ -2,12 +2,9 @@ package lesson_3.homework;
 
 public class Pc extends Category {
 
-    public void iconDescriptionSet() {
-        iconDescription = "PCs";
-    }
-
-    public void nameSet() {
-        name = "somePc";
+    public Pc (String icon, String name){
+        this.iconDescription = icon;
+        this.name = name;
     }
 
     @Override
