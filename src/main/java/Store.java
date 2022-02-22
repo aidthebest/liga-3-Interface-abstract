@@ -4,7 +4,7 @@ public class Store {
     public static void main(String[] args) {
         String[] store = new String[10];
 
-        for (int j = 0; j < 100; j++) {
+        for (int j = 0; ; j++) {
 
             System.out.println("Введите команду");
             Scanner scanner = new Scanner(System.in);
@@ -14,13 +14,13 @@ public class Store {
                 System.out.println("Кладём новый товар, укажите название");
                 String item = scanner.nextLine();
                 for (int i = 0; i < store.length; i++) {
-                    if ( store[i] == null){
+                    if (store[i] == null || store[i].isEmpty()){
                         store[i] = item;
                         System.out.println("Товар " + item + " успешно доваблен на склад");
                     break;
 
                 }
-                    else  System.out.println("Склад переполнен");
+//                    else  System.out.println("Склад переполнен");
 
             }
             }
@@ -29,11 +29,15 @@ public class Store {
                 System.out.println("Что удаляем?");
                 String itemToDel = scanner.nextLine();
                 for (int i = 0; i < store.length; i++) {
+                    if (store[i] == null) {
+                        continue;
+                    }
                     if (store[i].equals(itemToDel)) {
                         store[i] = null;
+                        System.out.println("Товар " + itemToDel + " успешно удалён со склада");
                         break;
                     }
-                    System.out.println("Товар " + itemToDel + " успешно удалён со склада");
+//                    System.out.println("Товар " + itemToDel + " успешно удалён со склада");
                 }
             }
 
@@ -41,12 +45,16 @@ public class Store {
                 System.out.println("Что ищем??");
                 String findItem = scanner.nextLine();
                 for (int i = 0; i < store.length; i++) {
+                    if (store[i] == null) {
+                        continue;
+                    }
                     if (store[i].equals(findItem)) {
                         System.out.println("Товар " + findItem + " есть на складе");
                         break;
                     }
-                    else System.out.println("Товара " + findItem + " На складе нет");
+//                    else System.out.println("Товара " + findItem + " На складе нет");
                 }
+//                System.out.println("Товара " + findItem + " На складе нет");
             }
 
             if (command.equals("count")) {
