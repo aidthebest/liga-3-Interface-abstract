@@ -20,7 +20,8 @@ public class Store {
                     break;
 
                 }
-//                    else  System.out.println("Склад переполнен");
+                    else if (store[i] != null) {System.out.println("Склад переполнен");
+                    };
 
             }
             }
@@ -34,10 +35,10 @@ public class Store {
                     }
                     if (store[i].equals(itemToDel)) {
                         store[i] = null;
-                        System.out.println("Товар " + itemToDel + " успешно удалён со склада");
+//                        System.out.println("Товар " + itemToDel + " успешно удалён со склада");
                         break;
                     }
-//                    System.out.println("Товар " + itemToDel + " успешно удалён со склада");
+                    System.out.println("Товар " + itemToDel + " успешно удалён со склада");
                 }
             }
 
