@@ -96,7 +96,30 @@ public class Tests {
     @Test
     public void test_7() {
         List<WebElement> elements = getElements();
-        System.out.println(elements.stream().peek(x->x.setDisplayed(false)).toList());
+        List<WebElement> text = elements.stream().filter(x->x.getType().equals(Type.TEXT)).toList();
+        List<WebElement> input = elements.stream().filter(x->x.getType().equals(Type.INPUT_FIELD)).toList();
+        List<WebElement> check = elements.stream().filter(x->x.getType().equals(Type.CHECKBOX)).toList();
+        List<WebElement> but = elements.stream().filter(x->x.getType().equals(Type.BUTTON)).toList();
+        List<WebElement> rbut = elements.stream().filter(x->x.getType().equals(Type.RADIO_BUTTON)).toList();
+        List<WebElement> image = elements.stream().filter(x->x.getType().equals(Type.IMAGE)).toList();
+
+        List<WebElement> totalList = Stream.concat(text.stream(), input.stream()).toList();
+        List<WebElement> totalList2 = Stream.concat(totalList.stream(), check.stream()).toList();
+        List<WebElement> totalList3 = Stream.concat(totalList2.stream(), but.stream()).toList();
+        List<WebElement> totalList4 = Stream.concat(totalList3.stream(), rbut.stream()).toList();
+        List<WebElement> totalList5 = Stream.concat(totalList4.stream(), image.stream()).toList();
+
+        System.out.println(totalList5.stream().peek(x->x.setDisplayed(false)).toList());
+//        System.out.println(text);
+//        System.out.println(input);
+//        System.out.println(check);
+//        System.out.println(but);
+//        System.out.println(rbut);
+//        System.out.println(image);
+//
+//        System.out.println(totalList5);
+
+//        sorted((x, y)-> x.getType().compareTo(y.getType())).toList();
     }
 
     /**
