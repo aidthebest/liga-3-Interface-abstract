@@ -80,8 +80,7 @@ public class Tests {
     @Test
     public void test_6() {
         List<WebElement> elements = getElements();
-        Stream<WebElement> webElementStream = elements.stream().filter(x -> x.setDisplayed(true)).filter(x->x.getValue()==null);
-        System.out.println(elements);
+        System.out.println(elements.stream().filter(x -> (x.isDisplayed())).filter(x->x.getValue()==null).toList());
     }
 
     /**
@@ -94,8 +93,10 @@ public class Tests {
      * 5. RADIO_BUTTON
      * 6. IMAGE
      */
+    @Test
     public void test_7() {
         List<WebElement> elements = getElements();
+        System.out.println(elements.stream().peek(x->x.setDisplayed(false)).toList());
     }
 
     /**
