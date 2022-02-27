@@ -1,7 +1,9 @@
 package lesson_6;
 
 import org.testng.annotations.Test;
+import org.w3c.dom.Text;
 
+import java.security.Key;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -127,8 +129,12 @@ public class Tests {
      * ключ - текст
      * значение - тип элемента
      */
+    @Test
     public void test_8() {
         List<WebElement> elements = getElements();
+        Map<String, Type> map = new HashMap<String,Type>();
+        for (WebElement i : elements) map.put(i.getText(), i.getType());
+        System.out.println(map);
     }
 
     /**
@@ -192,3 +198,33 @@ public class Tests {
         return result;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        List<Item> list;
+//        Map<Key,Item> map = new HashMap<Key,Item>();
+//        for (Item i : list) map.put(i.getKey(),i)
