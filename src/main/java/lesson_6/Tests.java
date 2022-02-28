@@ -141,8 +141,25 @@ public class Tests {
      * Получить список элементов, у которых текст или значение оканчивается на число от 500 и более.
      * И отсортировать по увеличению сначала элементы с текстом, а затем по убыванию элементы со значением.
      */
+    @Test
     public void test_9() {
         List<WebElement> elements = getElements();
+
+        List<WebElement> textList = elements.stream()
+                .filter(s->s.getText()!=null)
+                .filter(s->Integer.parseInt(s.getText().substring(16)) > 500)
+                .toList();
+
+        List<WebElement> valueList = elements.stream()
+                .filter(s->s.getValue()!=null)
+                .filter(s->Integer.parseInt(s.getValue().substring(17)) > 500)
+                .toList();
+
+        List<WebElement> totalList = Stream.concat(textList.stream(), valueList.stream()).toList();
+
+
+        System.out.println(totalList);
+
     }
 
     public static Map<Integer, String> getMap() {
