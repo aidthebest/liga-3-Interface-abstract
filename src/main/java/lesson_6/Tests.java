@@ -148,11 +148,13 @@ public class Tests {
         List<WebElement> textList = elements.stream()
                 .filter(s->s.getText()!=null)
                 .filter(s->Integer.parseInt(s.getText().substring(16)) > 500)
+                .sorted((s1, s2) -> Integer.parseInt(s1.getText().substring(16)) - Integer.parseInt(s2.getText().substring(16)))
                 .toList();
 
         List<WebElement> valueList = elements.stream()
                 .filter(s->s.getValue()!=null)
                 .filter(s->Integer.parseInt(s.getValue().substring(17)) > 500)
+                .sorted((s1, s2) -> Integer.parseInt(s2.getValue().substring(17)) - Integer.parseInt(s1.getValue().substring(17)))
                 .toList();
 
         List<WebElement> totalList = Stream.concat(textList.stream(), valueList.stream()).toList();
